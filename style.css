@@ -421,6 +421,83 @@ input, select, textarea { font-family: inherit; }
 }
 .btn-add:hover { background: var(--red-dark); transform: scale(1.05); }
 
+/* ====== POLOKONZERVY ====== */
+.product-badge.polok { background: #f59e0b; color: var(--white); }
+
+.polok-banner {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 32px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 8px;
+  align-items: stretch;
+}
+.polok-banner-img {
+  flex: 0 0 260px;
+  max-width: 260px;
+  overflow: hidden;
+}
+.polok-banner-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.polok-banner-body {
+  flex: 1;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+.polok-tag {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 50px;
+  align-self: flex-start;
+}
+.polok-banner-body h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin: 0;
+}
+.polok-banner-body p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+.polok-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.polok-highlights li {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+@media (max-width: 700px) {
+  .polok-banner { flex-direction: column; }
+  .polok-banner-img { flex: none; max-width: 100%; height: 180px; }
+  .polok-banner-body { padding: 20px; }
+}
+
 /* ====== ORDER SECTION ====== */
 .order-layout {
   display: grid;
