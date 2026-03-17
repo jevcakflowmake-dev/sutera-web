@@ -4,57 +4,73 @@
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ====== HAMBURGER + OVERLAY MENU ======
+const hamburger   = document.getElementById('hamburger');
+const navOverlay  = document.getElementById('navOverlay');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = hamburger.classList.toggle('open');
+  navOverlay.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-// ====== HAMBURGER ======
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  const spans = hamburger.querySelectorAll('span');
-  const isOpen = navLinks.classList.contains('open');
-  spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px, 5px)' : '';
-  spans[1].style.opacity = isOpen ? '0' : '';
-  spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px, -5px)' : '';
-});
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-  });
+function closeNav() {
+  hamburger.classList.remove('open');
+  navOverlay.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+// Close overlay on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
 });
 
 // ====== HERO SLIDER ======
-const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.dot');
-let currentSlide = 0;
+const heroSlides   = document.querySelectorAll('.hero-slide');
+const slideNumEl   = document.getElementById('slideNum');
+const slidePrevBtn = document.getElementById('slidePrev');
+const slideNextBtn = document.getElementById('slideNext');
+let currentSlide   = 0;
 let sliderInterval;
 
 function goToSlide(idx) {
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = (idx + slides.length) % slides.length;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
+  heroSlides[currentSlide].classList.remove('active');
+  currentSlide = ((idx % heroSlides.length) + heroSlides.length) % heroSlides.length;
+  heroSlides[currentSlide].classList.add('active');
+  if (slideNumEl) {
+    slideNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
+  }
 }
 
 function startSlider() {
-  sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+  sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 5500);
 }
 
-dots.forEach(dot => {
-  dot.addEventListener('click', () => {
+if (slidePrevBtn) {
+  slidePrevBtn.addEventListener('click', () => {
     clearInterval(sliderInterval);
-    goToSlide(parseInt(dot.dataset.index));
+    goToSlide(currentSlide - 1);
     startSlider();
   });
-});
+}
+
+if (slideNextBtn) {
+  slideNextBtn.addEventListener('click', () => {
+    clearInterval(sliderInterval);
+    goToSlide(currentSlide + 1);
+    startSlider();
+  });
+}
 
 startSlider();
 
 // ====== PRODUCT FILTER ======
-const catTabs = document.querySelectorAll('.cat-tab');
-const productCards = document.querySelectorAll('.product-card');
+const catTabs     = document.querySelectorAll('.cat-tab');
+const productCards = document.querySelectorAll('.product-card, .polok-banner');
 
 catTabs.forEach(tab => {
   tab.addEventListener('click', () => {
@@ -83,13 +99,23 @@ function addToCart(name, price) {
   }
   renderCart();
   showCartFab();
-  // Small feedback on button
-  event.target.textContent = '✓ Přidáno';
-  event.target.style.background = '#2ecc71';
+
+  // Tactile button feedback
+  const btn = event.currentTarget;
+  const originalHtml = btn.innerHTML;
+  btn.innerHTML = `
+    <span>Přidáno</span>
+    <span class="btn-add-icon" aria-hidden="true">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+    </span>
+  `;
+  btn.style.background = '#2a7a4f';
+  btn.disabled = true;
   setTimeout(() => {
-    event.target.textContent = '+ Přidat';
-    event.target.style.background = '';
-  }, 1200);
+    btn.innerHTML = originalHtml;
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 1400);
 }
 
 function changeQty(name, delta) {
@@ -107,56 +133,59 @@ function removeFromCart(name) {
 }
 
 function renderCart() {
-  const container = document.getElementById('cartItems');
-  const empty = document.getElementById('cartEmpty');
-  const totalEl = document.getElementById('cartTotal');
+  const container  = document.getElementById('cartItems');
+  const emptyEl    = document.getElementById('cartEmpty');
+  const totalEl    = document.getElementById('cartTotal');
   const totalPrice = document.getElementById('totalPrice');
-  const fabCount = document.getElementById('cartFabCount');
+  const fabCount   = document.getElementById('cartFabCount');
 
   const items = Object.entries(cart);
 
-  // Remove old items except empty placeholder
+  // Remove old rendered items
   container.querySelectorAll('.cart-item').forEach(el => el.remove());
 
   if (items.length === 0) {
-    empty.style.display = 'block';
-    totalEl.style.display = 'none';
-    fabCount.textContent = '0';
+    emptyEl.style.display  = 'flex';
+    totalEl.style.display  = 'none';
+    fabCount.textContent   = '0';
     return;
   }
 
-  empty.style.display = 'none';
+  emptyEl.style.display = 'none';
   totalEl.style.display = 'flex';
 
-  let total = 0;
+  let total    = 0;
   let totalQty = 0;
 
   items.forEach(([name, { price, qty }]) => {
-    total += price * qty;
+    total    += price * qty;
     totalQty += qty;
+
     const el = document.createElement('div');
     el.className = 'cart-item';
     el.innerHTML = `
       <span class="cart-item-name">${name}</span>
       <div class="cart-item-right">
         <div class="cart-item-qty">
-          <button class="qty-btn" onclick="changeQty('${name}', -1)">−</button>
+          <button class="qty-btn" onclick="changeQty('${name}', -1)" aria-label="Ubrat kus">−</button>
           <span class="qty-num">${qty}</span>
-          <button class="qty-btn" onclick="changeQty('${name}', 1)">+</button>
+          <button class="qty-btn" onclick="changeQty('${name}', 1)" aria-label="Přidat kus">+</button>
         </div>
         <span class="cart-item-price">${(price * qty).toLocaleString('cs-CZ')} Kč</span>
-        <button class="cart-remove" onclick="removeFromCart('${name}')">✕</button>
+        <button class="cart-remove" onclick="removeFromCart('${name}')" aria-label="Odebrat ${name}">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
     `;
     container.appendChild(el);
   });
 
   totalPrice.textContent = `${total.toLocaleString('cs-CZ')} Kč`;
-  fabCount.textContent = totalQty;
+  fabCount.textContent   = totalQty;
 }
 
 function showCartFab() {
-  const fab = document.getElementById('cartFab');
+  const fab   = document.getElementById('cartFab');
   const items = Object.keys(cart).length;
   fab.style.display = items > 0 ? 'flex' : 'none';
 }
@@ -165,7 +194,7 @@ function scrollToOrder() {
   document.getElementById('objednat').scrollIntoView({ behavior: 'smooth' });
 }
 
-// ====== SET MIN DATE ======
+// ====== SET MIN DATE FOR PICKUP ======
 const pickupDate = document.getElementById('pickupDate');
 if (pickupDate) {
   const tomorrow = new Date();
@@ -173,17 +202,20 @@ if (pickupDate) {
   pickupDate.min = tomorrow.toISOString().split('T')[0];
 }
 
-// ====== ORDER SUBMIT ======
+// ====== ORDER FORM SUBMIT ======
 function submitOrder(e) {
   e.preventDefault();
-  const items = Object.entries(cart);
-  if (items.length === 0) {
-    alert('Přidejte prosím alespoň jeden produkt do košíku.');
+  if (Object.keys(cart).length === 0) {
+    // Inline error — no alert()
+    const cartBox = document.querySelector('.cart-box');
+    const err = document.createElement('p');
+    err.style.cssText = 'color:#E84A39;font-size:0.85rem;margin-top:12px;font-weight:600;';
+    err.textContent = 'Přidejte alespoň jeden produkt do košíku.';
+    cartBox.appendChild(err);
+    setTimeout(() => err.remove(), 3500);
     return;
   }
-  // In production this would POST to a backend
   document.getElementById('modalOverlay').classList.add('active');
-  // Clear cart
   Object.keys(cart).forEach(k => delete cart[k]);
   renderCart();
   showCartFab();
@@ -199,32 +231,52 @@ document.getElementById('modalOverlay').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) closeModal();
 });
 
+// Close modal on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
 // ====== CONTACT SUBMIT ======
 function submitContact(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = '✓ Zpráva odeslána!';
-  btn.style.background = '#2ecc71';
+  const orig = btn.textContent;
+  btn.textContent = 'Zpráva odeslána';
+  btn.style.background = '#2a7a4f';
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = 'Odeslat zprávu';
+    btn.textContent = orig;
     btn.style.background = '';
     btn.disabled = false;
     e.target.reset();
   }, 3000);
 }
 
-// ====== SCROLL ANIMATIONS ======
-const fadeEls = document.querySelectorAll('.product-card, .store-card, .step, .stat-item, .about-badge');
-fadeEls.forEach(el => el.classList.add('fade-in'));
-
-const observer = new IntersectionObserver((entries) => {
+// ====== SCROLL REVEAL (IntersectionObserver) ======
+// Never use window.addEventListener('scroll') for animations — causes continuous reflows
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-fadeEls.forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ====== ACTIVE NAV LINK ON SCROLL ======
+const sections   = document.querySelectorAll('section[id], .section-dark[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`);
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => sectionObserver.observe(s));

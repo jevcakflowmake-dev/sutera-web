@@ -3,101 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Řeznictví Šutera – Synonymum čerstvého masa</title>
+  <meta name="description" content="Řeznictví Šutera — rodinné uzenářství s tradicí od roku 1968. Čerstvé maso z českých chovů, 9 prodejen, certifikát KLASA. Online objednávka s vyzvednutím na prodejně." />
+  <meta property="og:title"       content="Řeznictví Šutera — Čerstvé maso od 1968" />
+  <meta property="og:description" content="Rodinné uzenářství z Jihomoravského kraje. 100% české maso, 9 prodejen, certifikát KLASA." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:image"       content="https://sutera.cz/wp-content/uploads/2022/04/steaky.jpg" />
+  <title>Řeznictví Šutera — Čerstvé maso od roku 1968</title>
+  <link rel="icon" href="https://sutera.cz/wp-content/uploads/2022/04/logo-1.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- NAVBAR -->
+<a href="#produkty" class="skip-link">Přejít na obsah</a>
+
+<!-- MOBILE NAV OVERLAY -->
+<nav class="nav-overlay" id="navOverlay" aria-label="Hlavní navigace (mobilní)">
+  <a href="#produkty"  onclick="closeNav()">Produkty</a>
+  <a href="#o-nas"     onclick="closeNav()">O nás</a>
+  <a href="#prodejny"  onclick="closeNav()">Prodejny</a>
+  <a href="#kontakt"   onclick="closeNav()">Kontakt</a>
+  <a href="#objednat"  onclick="closeNav()">Objednat</a>
+</nav>
+
+<!-- FLOATING ISLAND NAVBAR -->
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="#" class="logo">
+    <a href="#" class="logo" aria-label="Šutera — zpět na začátek">
       <img src="https://sutera.cz/wp-content/uploads/2022/04/logo-1.png" alt="Šutera Řeznictví" />
     </a>
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links" aria-label="Hlavní navigace">
       <a href="#produkty">Produkty</a>
       <a href="#o-nas">O nás</a>
       <a href="#prodejny">Prodejny</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#objednat" class="btn-nav">Objednat online</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-slider" id="heroSlider">
-    <div class="hero-slide active" style="background-image: url('https://sutera.cz/wp-content/uploads/2022/04/steaky.jpg')">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="hero-tag">Prémiová kvalita</span>
-        <h1>Řeznictví <span class="red">Šutera</span></h1>
-        <p>Synonymum čerstvého masa od roku 1968.<br>Výhradně české suroviny, certifikát kvality KLASA.</p>
-        <div class="hero-btns">
-          <a href="#objednat" class="btn btn-primary">Objednat online</a>
-          <a href="#produkty" class="btn btn-outline">Naše produkty</a>
-        </div>
+<section class="hero" id="hero" aria-label="Úvodní sekce">
+
+  <!-- Slide backgrounds -->
+  <div class="hero-slide active" style="background-image: url('https://sutera.cz/wp-content/uploads/2022/04/steaky.jpg')" aria-hidden="true"></div>
+  <div class="hero-slide"        style="background-image: url('https://sutera.cz/wp-content/uploads/2022/04/hovezi.jpg')" aria-hidden="true"></div>
+  <div class="hero-slide"        style="background-image: url('https://sutera.cz/wp-content/uploads/2022/04/grilovani.jpg')" aria-hidden="true"></div>
+  <div class="hero-overlay"      aria-hidden="true"></div>
+
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-eyebrow-tag">Prémiová kvalita · Od roku 1968</div>
+      <h1 class="hero-title">Tradice<br><span class="accent">řemesla.</span></h1>
+      <p class="hero-sub">Rodinné uzenářství z Letovic. Výhradně české maso z vlastních chovů, certifikát KLASA. 9 prodejen v jihomoravském kraji.</p>
+      <div class="hero-actions">
+        <a href="#objednat" class="btn-hero-primary">
+          Objednat online
+          <span class="btn-icon-wrap" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a href="#produkty" class="btn-hero-text">Naše produkty</a>
       </div>
     </div>
-    <div class="hero-slide" style="background-image: url('https://sutera.cz/wp-content/uploads/2022/04/hovezi.jpg')">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="hero-tag">Hovězí maso</span>
-        <h1>Čerstvé <span class="red">hovězí</span></h1>
-        <p>Maso pochází pouze z českých chovů.<br>Nezpracováváme žádné dovozy!</p>
-        <div class="hero-btns">
-          <a href="#objednat" class="btn btn-primary">Objednat nyní</a>
-          <a href="#produkty" class="btn btn-outline">Zobrazit více</a>
-        </div>
+
+    <!-- Slide counter + arrow controls -->
+    <div class="hero-controls" aria-label="Ovládání slideru">
+      <div class="slide-counter">
+        <strong id="slideNum">01</strong> <span>/ 03</span>
       </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('https://sutera.cz/wp-content/uploads/2022/04/grilovani.jpg')">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="hero-tag">Grilovací speciality</span>
-        <h1>Ideální na <span class="red">gril</span></h1>
-        <p>Výběr nejlepšího masa pro vaše grilovací zážitky.<br>Připraveno přímo od řezníka.</p>
-        <div class="hero-btns">
-          <a href="#objednat" class="btn btn-primary">Objednat nyní</a>
-          <a href="#produkty" class="btn btn-outline">Zobrazit více</a>
-        </div>
+      <div class="slide-arrows">
+        <button class="slide-arrow" id="slidePrev" aria-label="Předchozí snímek">
+          <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="slide-arrow" id="slideNext" aria-label="Další snímek">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </div>
-  <div class="hero-dots" id="heroDots">
-    <button class="dot active" data-index="0"></button>
-    <button class="dot" data-index="1"></button>
-    <button class="dot" data-index="2"></button>
-  </div>
-  <div class="hero-scroll">
-    <span>Scrollovat dolů</span>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
+<!-- MARQUEE BAND -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- First set -->
+    <span class="marquee-item">Čerstvé maso každý den<span class="marquee-sep"></span></span>
+    <span class="marquee-item">100% česká produkce<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Certifikát KLASA<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Bez konzervantů<span class="marquee-sep"></span></span>
+    <span class="marquee-item">9 prodejen v regionu<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Vlastní porážka a bourárna<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Rodinná tradice od roku 1968<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Online objednávka s vyzvednutím<span class="marquee-sep"></span></span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">Čerstvé maso každý den<span class="marquee-sep"></span></span>
+    <span class="marquee-item">100% česká produkce<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Certifikát KLASA<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Bez konzervantů<span class="marquee-sep"></span></span>
+    <span class="marquee-item">9 prodejen v regionu<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Vlastní porážka a bourárna<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Rodinná tradice od roku 1968<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Online objednávka s vyzvednutím<span class="marquee-sep"></span></span>
+  </div>
+</div>
+
 <!-- STATS -->
-<section class="stats">
+<section class="stats-section" aria-label="Klíčová čísla">
   <div class="container stats-grid">
-    <div class="stat-item">
+    <div class="stat-item reveal">
       <span class="stat-num">1968</span>
-      <span class="stat-label">Rok založení</span>
+      <span class="stat-label">Rok vzniku</span>
     </div>
-    <div class="stat-item">
+    <div class="stat-item reveal reveal-delay-1">
       <span class="stat-num">9</span>
       <span class="stat-label">Prodejen</span>
     </div>
-    <div class="stat-item">
+    <div class="stat-item reveal reveal-delay-2">
       <span class="stat-num">90</span>
       <span class="stat-label">Zaměstnanců</span>
     </div>
-    <div class="stat-item">
-      <span class="stat-num">100%</span>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-num"><span class="accent">100</span>%</span>
       <span class="stat-label">České suroviny</span>
     </div>
   </div>
@@ -107,27 +144,30 @@
 <section class="section" id="produkty">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">Naše nabídka</span>
-      <h2>Výběr <span class="red">produktů</span></h2>
-      <p>Vyberte kategorii a prozkoumejte naše čerstvé výrobky připravené k objednání.</p>
+      <div class="section-eyebrow reveal">
+        <span class="section-eyebrow-dot"></span>
+        Naše nabídka
+      </div>
+      <h2 class="section-title reveal">Výběr <span class="accent">produktů</span></h2>
+      <p class="section-sub reveal">Vyberte kategorii a prozkoumejte naše čerstvé výrobky připravené k objednání.</p>
     </div>
 
-    <div class="cat-tabs">
+    <div class="cat-tabs reveal">
       <button class="cat-tab active" data-cat="all">Vše</button>
       <button class="cat-tab" data-cat="veprove">Vepřové</button>
       <button class="cat-tab" data-cat="hovezi">Hovězí</button>
       <button class="cat-tab" data-cat="drubez">Drůbež</button>
       <button class="cat-tab" data-cat="uzeniny">Uzeniny</button>
       <button class="cat-tab" data-cat="gril">Na gril</button>
-      <button class="cat-tab" data-cat="polokonzervy">🥫 Polokonzervy</button>
+      <button class="cat-tab" data-cat="polokonzervy">Polokonzervy</button>
     </div>
 
     <div class="products-grid" id="productsGrid">
 
       <!-- Vepřové -->
-      <div class="product-card" data-cat="veprove">
+      <div class="product-card reveal" data-cat="veprove">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/04/veprove.jpg" alt="Vepřové maso" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/04/veprove.jpg" alt="Vepřová plec" loading="lazy" />
           <span class="product-badge">Čerstvé</span>
         </div>
         <div class="product-body">
@@ -136,12 +176,17 @@
           <p>Čerstvá vepřová plec z vlastních chovů. Skvělá na pečení i vaření.</p>
           <div class="product-footer">
             <span class="product-price">od 89 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Vepřová plec', 89)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Vepřová plec', 89)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="product-card" data-cat="veprove">
+      <div class="product-card reveal reveal-delay-1" data-cat="veprove">
         <div class="product-img-wrap">
           <img src="https://sutera.cz/wp-content/uploads/2022/05/sele_slideshow.jpg" alt="Uzené sele" loading="lazy" />
           <span class="product-badge new">Specialita</span>
@@ -152,14 +197,19 @@
           <p>Tradiční uzené sele připravené dle receptury Šutera. Nezaměnitelná chuť.</p>
           <div class="product-footer">
             <span class="product-price">od 199 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Uzené sele', 199)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Uzené sele', 199)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="product-card" data-cat="veprove gril">
+      <div class="product-card reveal reveal-delay-2" data-cat="veprove gril">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/04/grilovani.jpg" alt="Vepřové žebro" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/04/grilovani.jpg" alt="Vepřová žebra" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Vepřové · Gril</span>
@@ -167,15 +217,20 @@
           <p>Šťavnatá vepřová žebra ideální na gril nebo do trouby.</p>
           <div class="product-footer">
             <span class="product-price">od 129 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Vepřová žebra', 129)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Vepřová žebra', 129)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Hovězí -->
-      <div class="product-card" data-cat="hovezi">
+      <div class="product-card reveal" data-cat="hovezi">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/04/hovezi.jpg" alt="Hovězí maso" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/04/hovezi.jpg" alt="Hovězí zadní" loading="lazy" />
           <span class="product-badge">Čerstvé</span>
         </div>
         <div class="product-body">
@@ -184,14 +239,19 @@
           <p>Prémiové hovězí zadní z tuzemských chovů. Vhodné na roštěnky i svíčkovou.</p>
           <div class="product-footer">
             <span class="product-price">od 179 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Hovězí zadní', 179)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Hovězí zadní', 179)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="product-card" data-cat="hovezi gril">
+      <div class="product-card reveal reveal-delay-1" data-cat="hovezi gril">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/04/steaky.jpg" alt="Steaky" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/04/steaky.jpg" alt="Hovězí steak" loading="lazy" />
           <span class="product-badge new">Prémiové</span>
         </div>
         <div class="product-body">
@@ -200,12 +260,17 @@
           <p>Pečlivě vybraný hovězí steak pro dokonalý zážitek z grilování.</p>
           <div class="product-footer">
             <span class="product-price">od 249 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Hovězí steak', 249)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Hovězí steak', 249)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="product-card" data-cat="hovezi">
+      <div class="product-card reveal reveal-delay-2" data-cat="hovezi">
         <div class="product-img-wrap">
           <img src="https://sutera.cz/wp-content/uploads/2022/04/hovezi.jpg" alt="Hovězí přední" loading="lazy" />
         </div>
@@ -215,15 +280,20 @@
           <p>Výtečné hovězí přední na vývar, guláš nebo pečení.</p>
           <div class="product-footer">
             <span class="product-price">od 139 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Hovězí přední', 139)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Hovězí přední', 139)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Drůbež -->
-      <div class="product-card" data-cat="drubez">
+      <div class="product-card reveal" data-cat="drubez">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/04/kure.jpg" alt="Kuře" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/04/kure.jpg" alt="Celé kuře" loading="lazy" />
           <span class="product-badge">Čerstvé</span>
         </div>
         <div class="product-body">
@@ -232,14 +302,19 @@
           <p>Čerstvé kuře z porcovny Šutera. Vhodné na pečení, vaření i grilování.</p>
           <div class="product-footer">
             <span class="product-price">od 79 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Celé kuře', 79)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Celé kuře', 79)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="product-card" data-cat="drubez">
+      <div class="product-card reveal reveal-delay-1" data-cat="drubez">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/04/kure.jpg" alt="Krůta" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/04/kure.jpg" alt="Krůtí stehno" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Drůbež</span>
@@ -247,15 +322,20 @@
           <p>Šťavnaté krůtí stehno z vlastní porcovny. Zdravá a chutná alternativa.</p>
           <div class="product-footer">
             <span class="product-price">od 99 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Krůtí stehno', 99)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Krůtí stehno', 99)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Uzeniny -->
-      <div class="product-card" data-cat="uzeniny">
+      <div class="product-card reveal" data-cat="uzeniny">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/05/letak_konzervy.jpg" alt="Uzeniny" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/05/letak_konzervy.jpg" alt="Klasické uzeniny" loading="lazy" />
           <span class="product-badge new">Tradiční</span>
         </div>
         <div class="product-body">
@@ -264,67 +344,79 @@
           <p>Tradiční uzenářské výrobky vyráběné dle osvědčených receptur.</p>
           <div class="product-footer">
             <span class="product-price">od 59 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Klasické uzeniny', 59)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Klasické uzeniny', 59)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Gril -->
-      <div class="product-card" data-cat="gril">
+      <!-- Na gril -->
+      <div class="product-card reveal reveal-delay-1" data-cat="gril">
         <div class="product-img-wrap">
-          <img src="https://sutera.cz/wp-content/uploads/2022/04/grilovani.jpg" alt="Gril mix" loading="lazy" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/04/grilovani.jpg" alt="Grilovací mix" loading="lazy" />
           <span class="product-badge">Sezónní</span>
         </div>
         <div class="product-body">
           <span class="product-cat">Na gril</span>
           <h3>Grilovací mix</h3>
-          <p>Výběr nejlepšího masa na gril – klobásy, žebra, krkovice a kuřecí křídla.</p>
+          <p>Výběr nejlepšího masa na gril — klobásy, žebra, krkovice a kuřecí křídla.</p>
           <div class="product-footer">
             <span class="product-price">od 149 Kč/kg</span>
-            <button class="btn-add" onclick="addToCart('Grilovací mix', 149)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Grilovací mix', 149)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- ===== POLOKONZERVY ===== -->
-
-      <!-- Banner -->
-      <div class="polok-banner" data-cat="polokonzervy">
+      <!-- POLOKONZERVY BANNER -->
+      <div class="polok-banner reveal" data-cat="polokonzervy">
         <div class="polok-banner-img">
-          <img src="https://sutera.cz/wp-content/uploads/2022/05/letak_konzervy.jpg" alt="Šuterovy polokonzervy leták" />
+          <img src="https://sutera.cz/wp-content/uploads/2022/05/letak_konzervy.jpg" alt="Šuterovy polokonzervy — leták" />
         </div>
         <div class="polok-banner-body">
           <span class="polok-tag">Tradiční výroba</span>
           <h3>Šuterovy <strong>polokonzervy</strong></h3>
           <p>Veškeré polokonzervy jsou připraveny klasickým postupem z nejkvalitnějšího čerstvého masa z českých chovů. <strong>Skladovat při teplotě do 5 °C.</strong></p>
           <ul class="polok-highlights">
-            <li>✓ Bez konzervantů</li>
-            <li>✓ 100% české maso</li>
-            <li>✓ Tradiční receptury</li>
-            <li>✓ Nové druhy v nabídce</li>
+            <li>Bez konzervantů</li>
+            <li>100% české maso</li>
+            <li>Tradiční receptury</li>
+            <li>Nové druhy v nabídce</li>
           </ul>
         </div>
       </div>
 
-      <!-- Vepřové maso -->
-      <div class="product-card" data-cat="polokonzervy">
+      <!-- Polokonzervy produkty -->
+      <div class="product-card reveal" data-cat="polokonzervy">
         <div class="product-img-wrap">
-          <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=400&h=300" alt="Vepřové maso" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=400&h=300" alt="Vepřové maso v nálevu" loading="lazy" />
           <span class="product-badge polok">Polokonzerva</span>
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Vepřové maso</h3>
-          <p>Šťavnaté vepřové maso v nálevu, připravené klasickým způsobem. Výborné na přímou konzumaci i k přípravě pokrmů.</p>
+          <p>Šťavnaté vepřové maso v nálevu, připravené klasickým způsobem.</p>
           <div class="product-footer">
             <span class="product-price">99 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Vepřové maso (polok.)', 99)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Vepřové maso (polok.)', 99)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Guláš vepřový -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-1" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&h=300" alt="Guláš vepřový" loading="lazy" />
           <span class="product-badge polok">Polokonzerva</span>
@@ -332,16 +424,20 @@
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Guláš vepřový</h3>
-          <p>Tradiční vepřový guláš s cibulí a paprikou dle domácí receptury. Stačí ohřát a podávat.</p>
+          <p>Tradiční vepřový guláš s cibulí a paprikou dle domácí receptury. Stačí ohřát.</p>
           <div class="product-footer">
             <span class="product-price">105 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Guláš vepřový', 105)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Guláš vepřový', 105)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Guláš hovězí -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-2" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1560684352-8497838a2229?auto=format&fit=crop&w=400&h=300" alt="Guláš hovězí" loading="lazy" />
           <span class="product-badge polok">Polokonzerva</span>
@@ -349,32 +445,40 @@
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Guláš hovězí</h3>
-          <p>Poctivý hovězí guláš z českého masa. Bohatá omáčka, jemné maso – ideální s knedlíkem.</p>
+          <p>Poctivý hovězí guláš z českého masa. Bohatá omáčka, jemné maso.</p>
           <div class="product-footer">
             <span class="product-price">115 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Guláš hovězí', 115)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Guláš hovězí', 115)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Lunchmeat -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1542834369-f10ebf06d3e0?auto=format&fit=crop&w=400&h=300" alt="Lunchmeat" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Lunchmeat</h3>
-          <p>Oblíbený lunchmeat z vepřového masa, připravený dle osvědčené receptury. Skvělý na svačinu i studený talíř.</p>
+          <p>Oblíbený lunchmeat z vepřového masa. Skvělý na svačinu i studený talíř.</p>
           <div class="product-footer">
             <span class="product-price">89 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Lunchmeat', 89)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Lunchmeat', 89)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Uzené maso -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-1" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&h=300" alt="Uzené maso" loading="lazy" />
           <span class="product-badge new">Oblíbené</span>
@@ -382,32 +486,40 @@
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Uzené maso</h3>
-          <p>Tradiční uzené vepřové maso s nezaměnitelnou chutí kouře. Výborné teplé i studené.</p>
+          <p>Tradiční uzené vepřové maso s nezaměnitelnou chutí kouře.</p>
           <div class="product-footer">
             <span class="product-price">109 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Uzené maso (polok.)', 109)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Uzené maso (polok.)', 109)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Tlačenka světlá -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-2" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&h=300" alt="Tlačenka světlá" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Tlačenka světlá</h3>
-          <p>Klasická světlá tlačenka z vepřového masa. Podávejte nakrájenou s cibulí a octem.</p>
+          <p>Klasická světlá tlačenka z vepřového masa. Podávejte s cibulí a octem.</p>
           <div class="product-footer">
             <span class="product-price">85 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Tlačenka světlá', 85)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Tlačenka světlá', 85)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Hovězí na smetaně -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&h=300&sat=20" alt="Hovězí na smetaně" loading="lazy" />
           <span class="product-badge polok">Polokonzerva</span>
@@ -415,48 +527,60 @@
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Hovězí na smetaně</h3>
-          <p>Jemné hovězí v bohaté smetanové omáčce. Skvělé k podávání s knedlíkem nebo rýží.</p>
+          <p>Jemné hovězí v bohaté smetanové omáčce. Skvělé s knedlíkem nebo rýží.</p>
           <div class="product-footer">
             <span class="product-price">119 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Hovězí na smetaně', 119)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Hovězí na smetaně', 119)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Klobásy v konzervě -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-1" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=400&h=300" alt="Klobásy v konzervě" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Klobásy v konzervě</h3>
-          <p>Pikantní klobásy z vepřového masa v marinádě. Výborné na přímou konzumaci nebo na gril.</p>
+          <p>Pikantní klobásy z vepřového masa v marinádě. Výborné na přímou konzumaci.</p>
           <div class="product-footer">
             <span class="product-price">99 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Klobásy v konzervě', 99)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Klobásy v konzervě', 99)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Játrová paštika -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-2" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=400&h=300" alt="Játrová paštika" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Játrová paštika</h3>
-          <p>Jemná játrová paštika z vepřových jater s bylinkami. Ideální pomazánka na pečivo.</p>
+          <p>Jemná játrová paštika z vepřových jater s bylinkami. Ideální pomazánka.</p>
           <div class="product-footer">
             <span class="product-price">79 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Játrová paštika', 79)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Játrová paštika', 79)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Pikantní kuřecí směs -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=400&h=300" alt="Pikantní kuřecí směs" loading="lazy" />
           <span class="product-badge new">Nové</span>
@@ -464,16 +588,20 @@
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Pikantní kuřecí směs</h3>
-          <p>Kuřecí maso s pikantní paprikovou omáčkou a zeleninou. Stačí ohřát, podávejte s rýží.</p>
+          <p>Kuřecí maso s pikantní paprikovou omáčkou a zeleninou. Stačí ohřát.</p>
           <div class="product-footer">
             <span class="product-price">109 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Pikantní kuřecí směs', 109)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Pikantní kuřecí směs', 109)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Pikantní vepřová směs -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-1" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=400&h=300&q=70" alt="Pikantní vepřová směs" loading="lazy" />
           <span class="product-badge new">Nové</span>
@@ -481,16 +609,20 @@
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Pikantní vepřová směs</h3>
-          <p>Vepřové maso se zeleninou v pikantní paprikové omáčce. Výborné s chlebem nebo těstovinami.</p>
+          <p>Vepřové maso se zeleninou v pikantní paprikové omáčce.</p>
           <div class="product-footer">
             <span class="product-price">105 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Pikantní vepřová směs', 105)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Pikantní vepřová směs', 105)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Vepřové na houbách -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-2" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&h=300&q=70" alt="Vepřové na houbách" loading="lazy" />
         </div>
@@ -500,29 +632,37 @@
           <p>Jemné vepřové maso s lesními houbami v husté omáčce. Tradiční česká chuť.</p>
           <div class="product-footer">
             <span class="product-price">109 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Vepřové na houbách', 109)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Vepřové na houbách', 109)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Kuře na paprice -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=400&h=300&q=70" alt="Kuře na paprice" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Kuře na paprice</h3>
-          <p>Klasické kuře na paprice se smetanovou omáčkou. Podávejte s houskový knedlíkem.</p>
+          <p>Klasické kuře na paprice se smetanovou omáčkou. Podávejte s knedlíkem.</p>
           <div class="product-footer">
             <span class="product-price">99 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Kuře na paprice', 99)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Kuře na paprice', 99)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Dršťková polévka -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-1" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&w=400&h=300" alt="Dršťková polévka" loading="lazy" />
         </div>
@@ -532,79 +672,103 @@
           <p>Tradiční česká dršťková polévka s paprikou a kmínem. Stačí jen ohřát.</p>
           <div class="product-footer">
             <span class="product-price">89 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Dršťková polévka', 89)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Dršťková polévka', 89)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Segedínský guláš -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-2" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&h=300&q=65" alt="Segedínský guláš" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Segedínský guláš</h3>
-          <p>Vepřový guláš s kysaným zelím a smetanou dle klasické receptury. Oblíbený český hit.</p>
+          <p>Vepřový guláš s kysaným zelím a smetanou dle klasické receptury.</p>
           <div class="product-footer">
             <span class="product-price">109 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Segedínský guláš', 109)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Segedínský guláš', 109)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Kotleta na slanině -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&h=300&q=70" alt="Kotleta na slanině" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Kotleta na slanině</h3>
-          <p>Šťavnatá vepřová kotleta se slaninou v aromatické omáčce. Vydatné a chutné jídlo.</p>
+          <p>Šťavnatá vepřová kotleta se slaninou v aromatické omáčce.</p>
           <div class="product-footer">
             <span class="product-price">119 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Kotleta na slanině', 119)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Kotleta na slanině', 119)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Rajská omáčka -->
-      <div class="product-card" data-cat="polokonzervy">
+      <div class="product-card reveal reveal-delay-1" data-cat="polokonzervy">
         <div class="product-img-wrap">
           <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=400&h=300" alt="Rajská omáčka" loading="lazy" />
         </div>
         <div class="product-body">
           <span class="product-cat">Polokonzervy</span>
           <h3>Rajská omáčka</h3>
-          <p>Vepřové maso v tradiční rajské omáčce. Klasika české kuchyně s hovězím výmyslem.</p>
+          <p>Vepřové maso v tradiční rajské omáčce. Klasika české kuchyně.</p>
           <div class="product-footer">
             <span class="product-price">95 Kč/ks</span>
-            <button class="btn-add" onclick="addToCart('Rajská omáčka', 95)">+ Přidat</button>
+            <button class="btn-add" onclick="addToCart('Rajská omáčka', 95)">
+              Přidat
+              <span class="btn-add-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-    </div>
+    </div><!-- /products-grid -->
   </div>
 </section>
 
-<!-- ORDER SECTION -->
-<section class="section section-dark" id="objednat">
+<!-- ORDER -->
+<section class="section-dark" id="objednat">
   <div class="container">
-    <div class="section-header light">
-      <span class="section-tag">Online objednávka</span>
-      <h2>Objednejte si <span class="red">online</span></h2>
-      <p>Vyberte produkty, zvolte prodejnu a my vám objednávku připravíme k vyzvednutí.</p>
+    <div class="section-header">
+      <div class="section-eyebrow light reveal">
+        <span class="section-eyebrow-dot"></span>
+        Online objednávka
+      </div>
+      <h2 class="section-title light reveal">Objednejte si <span class="accent">online</span></h2>
+      <p class="section-sub light reveal">Vyberte produkty, zvolte prodejnu a my vám objednávku připravíme k vyzvednutí.</p>
     </div>
 
-    <!-- Cart -->
-    <div class="order-layout">
+    <div class="order-layout reveal">
+      <!-- Cart -->
       <div class="cart-box">
         <h3>Váš košík</h3>
         <div class="cart-items" id="cartItems">
           <div class="cart-empty" id="cartEmpty">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
             <p>Košík je prázdný.<br><small>Přidejte produkty ze sekce výše.</small></p>
           </div>
         </div>
@@ -614,48 +778,49 @@
         </div>
       </div>
 
+      <!-- Order form -->
       <div class="order-form-box">
         <h3>Detaily objednávky</h3>
         <form class="order-form" id="orderForm" onsubmit="submitOrder(event)">
           <div class="form-row">
             <div class="form-group">
-              <label>Jméno a příjmení *</label>
-              <input type="text" name="name" placeholder="Jan Novák" required />
+              <label for="name">Jméno a příjmení *</label>
+              <input type="text" id="name" name="name" placeholder="Jana Nováková" required />
             </div>
             <div class="form-group">
-              <label>Telefon *</label>
-              <input type="tel" name="phone" placeholder="+420 777 123 456" required />
+              <label for="phone">Telefon *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+420 777 123 456" required />
             </div>
           </div>
           <div class="form-group">
-            <label>E-mail *</label>
-            <input type="email" name="email" placeholder="jan.novak@email.cz" required />
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="jana.novakova@email.cz" required />
           </div>
           <div class="form-group">
-            <label>Prodejna pro vyzvednutí *</label>
-            <select name="store" required>
-              <option value="">-- Vyberte prodejnu --</option>
-              <option value="blansko">Blansko – Náměstí Míru 1299/5</option>
-              <option value="letovice">Letovice – Masarykovo náměstí 216/7</option>
-              <option value="letovice-bufet">Letovice – Bufet (Masarykovo nám. 216/7)</option>
-              <option value="lysice">Lysice – Komenského 139</option>
-              <option value="olešnice">Olešnice – náměstí Míru 118</option>
-              <option value="polička">Polička – Starohradská 378</option>
-              <option value="svitavy">Svitavy – Milady Horákové 486/40</option>
-              <option value="zbýšov">Zbýšov – Masarykova 8</option>
-              <option value="ivančice">Ivančice – Drůbeží trh 1</option>
-              <option value="březová">Březová nad Svitavou – Moravské náměstí 67</option>
+            <label for="store">Prodejna pro vyzvednutí *</label>
+            <select id="store" name="store" required>
+              <option value="">— Vyberte prodejnu —</option>
+              <option value="blansko">Blansko — Náměstí Míru 1299/5</option>
+              <option value="letovice">Letovice — Masarykovo náměstí 216/7</option>
+              <option value="letovice-bufet">Letovice — Bufet (Masarykovo nám. 216/7)</option>
+              <option value="lysice">Lysice — Komenského 139</option>
+              <option value="olesnice">Olešnice — náměstí Míru 118</option>
+              <option value="policka">Polička — Starohradská 378</option>
+              <option value="svitavy">Svitavy — Milady Horákové 486/40</option>
+              <option value="zbysov">Zbýšov — Masarykova 8</option>
+              <option value="ivancice">Ivančice — Drůbeží trh 1</option>
+              <option value="brezova">Březová nad Svitavou — Moravské náměstí 67</option>
             </select>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Datum vyzvednutí *</label>
-              <input type="date" name="date" required id="pickupDate" />
+              <label for="pickupDate">Datum vyzvednutí *</label>
+              <input type="date" id="pickupDate" name="date" required />
             </div>
             <div class="form-group">
-              <label>Čas vyzvednutí *</label>
-              <select name="time" required>
-                <option value="">-- Vyberte čas --</option>
+              <label for="pickupTime">Čas vyzvednutí *</label>
+              <select id="pickupTime" name="time" required>
+                <option value="">— Vyberte čas —</option>
                 <option>07:00 – 08:00</option>
                 <option>08:00 – 09:00</option>
                 <option>09:00 – 10:00</option>
@@ -670,14 +835,14 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Poznámka</label>
-            <textarea name="note" rows="3" placeholder="Speciální požadavky, množství, způsob přípravy..."></textarea>
+            <label for="note">Poznámka</label>
+            <textarea id="note" name="note" rows="3" placeholder="Speciální požadavky, množství, způsob přípravy…"></textarea>
           </div>
           <div class="form-check">
             <input type="checkbox" id="gdpr" name="gdpr" required />
             <label for="gdpr">Souhlasím se zpracováním osobních údajů pro účely vyřízení objednávky.</label>
           </div>
-          <button type="submit" class="btn btn-primary btn-full">Odeslat objednávku</button>
+          <button type="submit" class="btn-primary btn-full">Odeslat objednávku</button>
         </form>
       </div>
     </div>
@@ -687,53 +852,55 @@
 <!-- ABOUT -->
 <section class="section" id="o-nas">
   <div class="container about-grid">
-    <div class="about-images">
-      <div class="about-img-main">
-        <img src="https://sutera.cz/wp-content/uploads/2022/04/hovezi.jpg" alt="Hovězí maso Šutera" />
-      </div>
-      <div class="about-img-badges">
-        <div class="about-badge">
-          <span class="badge-icon">🏆</span>
-          <span>Certifikát KLASA</span>
-        </div>
-        <div class="about-badge">
-          <span class="badge-icon">🇨🇿</span>
-          <span>100% české maso</span>
-        </div>
+    <div class="about-img-wrap reveal">
+      <img src="https://sutera.cz/wp-content/uploads/2022/04/hovezi.jpg" alt="Čerstvé hovězí maso Šutera" />
+      <div class="about-badges">
+        <span class="about-badge-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Certifikát KLASA
+        </span>
+        <span class="about-badge-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          100% české maso
+        </span>
       </div>
     </div>
-    <div class="about-content">
-      <span class="section-tag">O nás</span>
-      <h2>Rodinná tradice od <span class="red">roku 1968</span></h2>
-      <p>Firma František Šutera, rodinné uzenářství s tradicí od roku 1968, je potravinářským podnikem, který se zabývá výrobou masa a uzenin, provozuje vlastní porážku vepřů a hovězího dobytka.</p>
-      <p>Z malého rodinného podniku, který založil otec současného majitele, pan František Šutera st., je vybudován moderní podnik střední velikosti, zaměstnávající 90 pracovníků.</p>
+
+    <div class="about-content reveal">
+      <div class="section-eyebrow" style="margin-bottom:14px">
+        <span class="section-eyebrow-dot"></span>
+        O nás
+      </div>
+      <h2 class="section-title" style="margin-bottom:20px">Rodinná tradice od <span class="accent">roku 1968</span></h2>
+      <p>Firma František Šutera, rodinné uzenářství s tradicí od roku 1968, je potravinářským podnikem zabývajícím se výrobou masa a uzenin, provozuje vlastní porážku vepřů a hovězího dobytka.</p>
+      <p>Z malého rodinného podniku, který založil otec současného majitele, pan František Šutera st., je vybudován moderní podnik střední velikosti zaměstnávající 90 pracovníků.</p>
       <div class="about-steps">
-        <div class="step">
+        <div class="about-step">
           <div class="step-num">01</div>
           <div>
             <h4>Zázemí</h4>
-            <p>Firma byla založená v roce 1990. V roce 2010 byl postaven nový areál.</p>
+            <p>Firma byla zapsána do obchodního rejstříku v roce 1990. V roce 2010 byl postaven nový moderní areál.</p>
           </div>
         </div>
-        <div class="step">
+        <div class="about-step">
           <div class="step-num">02</div>
           <div>
-            <h4>Maso</h4>
-            <p>Maso pochází pouze z našich chovů nebo od českých dodavatelů. Nezpracováváme žádné dovozy!</p>
+            <h4>Původ masa</h4>
+            <p>Maso pochází výhradně z vlastních chovů nebo od prověřených českých dodavatelů. Nezpracováváme žádné dovozy.</p>
           </div>
         </div>
-        <div class="step">
+        <div class="about-step">
           <div class="step-num">03</div>
           <div>
-            <h4>Bourání</h4>
-            <p>Veškeré maso bouráme v naší moderní bourárně.</p>
+            <h4>Bourárna</h4>
+            <p>Veškeré maso bouráme v naší moderní bourárně za přísných hygienických podmínek.</p>
           </div>
         </div>
-        <div class="step">
+        <div class="about-step">
           <div class="step-num">04</div>
           <div>
-            <h4>Výroba & Prodej</h4>
-            <p>Poté se z masa vyrábí uzenářské výrobky a rozvážíme je do podnikových prodejen.</p>
+            <h4>Výroba a prodej</h4>
+            <p>Z masa vyrábíme uzenářské výrobky a rozvážíme je do vlastních podnikových prodejen.</p>
           </div>
         </div>
       </div>
@@ -742,93 +909,166 @@
 </section>
 
 <!-- STORES -->
-<section class="section section-gray" id="prodejny">
+<section class="section-warm" id="prodejny">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">Kde nás najdete</span>
-      <h2>Naše <span class="red">prodejny</span></h2>
-      <p>Navštivte nás v jedné z 9 prodejen v okresech Blansko, Brno-venkov a Svitavy.</p>
+      <div class="section-eyebrow reveal">
+        <span class="section-eyebrow-dot"></span>
+        Kde nás najdete
+      </div>
+      <h2 class="section-title reveal">Naše <span class="accent">prodejny</span></h2>
+      <p class="section-sub reveal">9 prodejen v okresech Blansko, Brno-venkov a Svitavy.</p>
     </div>
     <div class="stores-grid">
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Blansko</h4>
-        <p>Náměstí Míru 1299/5<br>678 01 Blansko</p>
-        <a href="tel:+420734449262" class="store-tel">+420 734 449 262</a>
-        <a href="https://maps.google.com/?q=Náměstí+Míru+1299/5+Blansko" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Blansko</h4>
+        </div>
+        <p>Náměstí Míru 1299/5, 678 01 Blansko</p>
+        <a href="tel:+420734449262" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 262
+        </a>
+        <a href="https://maps.google.com/?q=Náměstí+Míru+1299/5+Blansko" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Letovice</h4>
-        <p>Masarykovo náměstí 216/7<br>679 61 Letovice</p>
-        <a href="tel:+420734449280" class="store-tel">+420 734 449 280</a>
-        <a href="https://maps.google.com/?q=Masarykovo+náměstí+216/7+Letovice" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal reveal-delay-1">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Letovice</h4>
+        </div>
+        <p>Masarykovo náměstí 216/7, 679 61 Letovice</p>
+        <a href="tel:+420734449280" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 280
+        </a>
+        <a href="https://maps.google.com/?q=Masarykovo+náměstí+216/7+Letovice" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Letovice – Bufet</h4>
-        <p>Masarykovo náměstí 216/7<br>679 61 Letovice</p>
-        <a href="tel:+420734449280" class="store-tel">+420 734 449 280</a>
-        <a href="https://maps.google.com/?q=Masarykovo+náměstí+216/7+Letovice" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal reveal-delay-2">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Letovice — Bufet</h4>
+        </div>
+        <p>Masarykovo náměstí 216/7, 679 61 Letovice</p>
+        <a href="tel:+420734449280" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 280
+        </a>
+        <a href="https://maps.google.com/?q=Masarykovo+náměstí+216/7+Letovice" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Lysice</h4>
-        <p>Komenského 139<br>679 71 Lysice</p>
-        <a href="tel:+420734449257" class="store-tel">+420 734 449 257</a>
-        <a href="https://maps.google.com/?q=Komenského+139+Lysice" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Lysice</h4>
+        </div>
+        <p>Komenského 139, 679 71 Lysice</p>
+        <a href="tel:+420734449257" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 257
+        </a>
+        <a href="https://maps.google.com/?q=Komenského+139+Lysice" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Olešnice</h4>
-        <p>náměstí Míru 118<br>679 74 Olešnice</p>
-        <a href="tel:+420734449256" class="store-tel">+420 734 449 256</a>
-        <a href="https://maps.google.com/?q=náměstí+Míru+118+Olešnice" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal reveal-delay-1">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Olešnice</h4>
+        </div>
+        <p>náměstí Míru 118, 679 74 Olešnice</p>
+        <a href="tel:+420734449256" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 256
+        </a>
+        <a href="https://maps.google.com/?q=náměstí+Míru+118+Olešnice" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Polička</h4>
-        <p>Starohradská 378<br>572 01 Polička</p>
-        <a href="tel:+420734449284" class="store-tel">+420 734 449 284</a>
-        <a href="https://maps.google.com/?q=Starohradská+378+Polička" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal reveal-delay-2">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Polička</h4>
+        </div>
+        <p>Starohradská 378, 572 01 Polička</p>
+        <a href="tel:+420734449284" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 284
+        </a>
+        <a href="https://maps.google.com/?q=Starohradská+378+Polička" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Svitavy</h4>
-        <p>Milady Horákové 486/40<br>568 02 Svitavy</p>
-        <a href="tel:+420734449282" class="store-tel">+420 734 449 282</a>
-        <a href="https://maps.google.com/?q=Milady+Horákové+486/40+Svitavy" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Svitavy</h4>
+        </div>
+        <p>Milady Horákové 486/40, 568 02 Svitavy</p>
+        <a href="tel:+420734449282" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 282
+        </a>
+        <a href="https://maps.google.com/?q=Milady+Horákové+486/40+Svitavy" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Zbýšov</h4>
-        <p>Masarykova 8<br>664 11 Zbýšov</p>
-        <a href="tel:+420734449276" class="store-tel">+420 734 449 276</a>
-        <a href="https://maps.google.com/?q=Masarykova+8+Zbýšov" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal reveal-delay-1">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Zbýšov</h4>
+        </div>
+        <p>Masarykova 8, 664 11 Zbýšov</p>
+        <a href="tel:+420734449276" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 276
+        </a>
+        <a href="https://maps.google.com/?q=Masarykova+8+Zbýšov" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Ivančice</h4>
-        <p>Drůbeží trh 1<br>664 91 Ivančice</p>
-        <a href="tel:+420734449274" class="store-tel">+420 734 449 274</a>
-        <a href="https://maps.google.com/?q=Drůbeží+trh+1+Ivančice" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal reveal-delay-2">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Ivančice</h4>
+        </div>
+        <p>Drůbeží trh 1, 664 91 Ivančice</p>
+        <a href="tel:+420734449274" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 274
+        </a>
+        <a href="https://maps.google.com/?q=Drůbeží+trh+1+Ivančice" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
-      <div class="store-card">
-        <div class="store-icon">📍</div>
-        <h4>Březová nad Svitavou</h4>
-        <p>Moravské náměstí 67<br>569 02 Březová nad Svitavou</p>
-        <a href="tel:+420734449283" class="store-tel">+420 734 449 283</a>
-        <a href="https://maps.google.com/?q=Moravské+náměstí+67+Březová+nad+Svitavou" target="_blank" class="store-map">Zobrazit na mapě →</a>
+      <div class="store-card reveal">
+        <div class="store-card-head">
+          <div class="store-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h4>Březová nad Svitavou</h4>
+        </div>
+        <p>Moravské náměstí 67, 569 02 Březová nad Svitavou</p>
+        <a href="tel:+420734449283" class="store-tel">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +420 734 449 283
+        </a>
+        <a href="https://maps.google.com/?q=Moravské+náměstí+67+Březová+nad+Svitavou" target="_blank" rel="noopener" class="store-map">Zobrazit na mapě &rarr;</a>
       </div>
 
     </div>
@@ -838,27 +1078,36 @@
 <!-- CONTACT -->
 <section class="section" id="kontakt">
   <div class="container contact-grid">
-    <div class="contact-info">
-      <span class="section-tag">Kontakt</span>
-      <h2>Napište nebo <span class="red">zavolejte</span></h2>
-      <p>Rádi zodpovíme vaše dotazy ohledně produktů, objednávek nebo spolupráce.</p>
+    <div class="contact-info reveal">
+      <div class="section-eyebrow" style="margin-bottom:14px">
+        <span class="section-eyebrow-dot"></span>
+        Kontakt
+      </div>
+      <h2 class="contact-title">Napište nebo <span class="accent">zavolejte</span></h2>
+      <p class="contact-desc">Rádi zodpovíme vaše dotazy ohledně produktů, objednávek nebo spolupráce.</p>
       <div class="contact-items">
         <div class="contact-item">
-          <span class="contact-icon">📞</span>
+          <div class="contact-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
           <div>
             <strong>Telefon</strong>
             <a href="tel:+420734449262">+420 734 449 262</a>
           </div>
         </div>
         <div class="contact-item">
-          <span class="contact-icon">✉️</span>
+          <div class="contact-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
           <div>
             <strong>E-mail</strong>
             <a href="mailto:info@sutera.cz">info@sutera.cz</a>
           </div>
         </div>
         <div class="contact-item">
-          <span class="contact-icon">📍</span>
+          <div class="contact-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
           <div>
             <strong>Sídlo firmy</strong>
             <span>Letovice, Jihomoravský kraj</span>
@@ -866,22 +1115,23 @@
         </div>
       </div>
     </div>
-    <form class="contact-form" onsubmit="submitContact(event)">
-      <div class="form-row">
+
+    <form class="contact-form reveal" onsubmit="submitContact(event)">
+      <div class="form-row contact-form-row">
         <div class="form-group">
-          <label>Jméno *</label>
-          <input type="text" placeholder="Jan Novák" required />
+          <label for="cname">Jméno *</label>
+          <input type="text" id="cname" placeholder="Jana Nováková" required />
         </div>
         <div class="form-group">
-          <label>E-mail *</label>
-          <input type="email" placeholder="jan@email.cz" required />
+          <label for="cemail">E-mail *</label>
+          <input type="email" id="cemail" placeholder="jana@email.cz" required />
         </div>
       </div>
       <div class="form-group">
-        <label>Zpráva *</label>
-        <textarea rows="5" placeholder="Vaše zpráva..." required></textarea>
+        <label for="cmessage">Zpráva *</label>
+        <textarea id="cmessage" rows="5" placeholder="Vaše zpráva…" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Odeslat zprávu</button>
+      <button type="submit" class="btn-primary">Odeslat zprávu</button>
     </form>
   </div>
 </section>
@@ -900,14 +1150,14 @@
       <a href="#produkty">Drůbež</a>
       <a href="#produkty">Uzeniny</a>
       <a href="#produkty">Na gril</a>
-      <a href="#produkty">🥫 Polokonzervy</a>
+      <a href="#produkty">Polokonzervy</a>
     </div>
     <div class="footer-col">
       <h5>Firma</h5>
       <a href="#o-nas">O nás</a>
       <a href="#prodejny">Prodejny</a>
       <a href="#kontakt">Kontakt</a>
-      <a href="https://sutera.cz" target="_blank">Starý web</a>
+      <a href="https://sutera.cz" target="_blank" rel="noopener">Původní web</a>
     </div>
     <div class="footer-col">
       <h5>Objednávky</h5>
@@ -916,24 +1166,34 @@
       <a href="#prodejny">Osobně na prodejně</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2025 František Šutera – Řeznictví. Všechna práva vyhrazena.</p>
+  <div class="container footer-bottom">
+    <p>&copy; 2025 František Šutera — Řeznictví. Všechna práva vyhrazena.</p>
+    <div class="footer-legal">
+      <a href="#">Ochrana osobních údajů</a>
+      <a href="#">Obchodní podmínky</a>
+    </div>
   </div>
 </footer>
 
-<!-- CART FLOATING BTN -->
-<button class="cart-fab" id="cartFab" onclick="scrollToOrder()" style="display:none">
-  <span class="cart-fab-icon">🛒</span>
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" onclick="scrollToOrder()" aria-label="Košík">
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <path d="M16 10a4 4 0 01-8 0"/>
+  </svg>
   <span class="cart-fab-count" id="cartFabCount">0</span>
 </button>
 
 <!-- SUCCESS MODAL -->
-<div class="modal-overlay" id="modalOverlay">
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
-    <div class="modal-icon">✅</div>
-    <h3>Objednávka odeslána!</h3>
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3 id="modalTitle">Objednávka odeslána</h3>
     <p>Brzy vás budeme kontaktovat pro potvrzení objednávky a upřesnění detailů vyzvednutí.</p>
-    <button class="btn btn-primary" onclick="closeModal()">Zavřít</button>
+    <button class="btn-primary" onclick="closeModal()">Zavřít</button>
   </div>
 </div>
 
